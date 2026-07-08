@@ -5,20 +5,28 @@ import { motion } from "motion/react";
 export function Skills() {
   const skillCategories = [
     {
-      category: "Design Tools",
-      skills: ["Figma", "Adobe XD", "Adobe Photoshop", "Adobe Illustrator", "Sketch"],
+      category: "UI/UX & Product Design",
+      skills: ["Figma (Expert)", "Wireframing", "High-Fidelity Prototyping", "User Flows", "User Research", "Information Architecture", "Responsive Design"],
     },
     {
-      category: "UI/UX Skills",
-      skills: ["Wireframing", "Prototyping", "User Research", "Usability Testing", "Design Systems"],
+      category: "Design Systems",
+      skills: ["Component Design", "Auto Layout", "Interactive Prototypes", "Visual Hierarchy", "Design Consistency", "Reusable UI Components"],
     },
     {
-      category: "Design Specialties",
-      skills: ["Web Design", "Mobile App Design", "Poster Design", "Brand Identity", "Typography"],
+      category: "Design Expertise",
+      skills: ["Mobile App Design", "Website Design", "Landing Pages", "SaaS Interfaces", "Dashboard Design"],
     },
     {
-      category: "Other Skills",
-      skills: ["HTML/CSS", "Responsive Design", "User Flows", "Information Architecture", "Design Thinking"],
+      category: "AI & Prompt Engineering",
+      skills: ["Generative AI", "LLM-Based Development", "Advanced Prompt Design", "AI Coding Workflows", "Code Generation", "UI Generation"],
+    },
+    {
+      category: "Web Development",
+      skills: ["HTML5", "CSS3", "JavaScript", "React Fundamentals", "Front-End Development"],
+    },
+    {
+      category: "Development Tools",
+      skills: ["VS Code", "GitHub", "Netlify", "Render", "Supabase", "MongoDB"],
     },
   ];
 
