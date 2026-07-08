@@ -10,7 +10,7 @@ import { Footer } from "./components/Footer";
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="dark bg-[#030303] text-white min-h-screen font-['Outfit'] antialiased selection:bg-indigo-500/30">
       <Header />
       <Hero />
       <About />

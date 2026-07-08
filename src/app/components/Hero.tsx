@@ -1,4 +1,4 @@
-import { Linkedin, Mail, Download } from "lucide-react";
+import { Linkedin, Mail, Download, ArrowRight } from "lucide-react";
 import { Button } from "./ui/button";
 import profilePhoto from "../../assets/profile.png";
 import { motion } from "motion/react";
@@ -8,7 +8,6 @@ const handleDownloadResume = () => {
   const printWindow = window.open('', '_blank');
   if (!printWindow) return;
 
-  // Get the resume HTML
   const resumeHTML = `
 <!DOCTYPE html>
 <html lang="en">
@@ -155,152 +154,108 @@ const handleDownloadResume = () => {
 
 export function Hero() {
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 pt-20">
-      <div className="container mx-auto px-4 py-20">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
-            <div className="space-y-2">
-              <motion.p
-                className="text-indigo-600 font-medium"
+    <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-[#030303]">
+      {/* Background glowing orbs */}
+      <div className="absolute top-1/4 -left-32 w-[500px] h-[500px] bg-indigo-600/20 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 -right-32 w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-[150px] pointer-events-none" />
+
+      <div className="container mx-auto px-4 py-20 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="space-y-8">
+            <div className="space-y-4">
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
+                className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm"
               >
-                Hello, I'm
-              </motion.p>
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span className="text-sm font-medium text-gray-300">Available for work</span>
+              </motion.div>
+              
               <motion.h1
-                className="text-5xl md:text-6xl font-bold text-gray-900"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{
-                  opacity: 1,
-                  y: 0,
-                  textShadow: [
-                    "0 0 0px rgba(79, 70, 229, 0)",
-                    "0 0 20px rgba(79, 70, 229, 0.8)",
-                    "0 0 30px rgba(79, 70, 229, 0.6)",
-                    "0 0 20px rgba(79, 70, 229, 0.8)",
-                    "0 0 0px rgba(79, 70, 229, 0)",
-                  ],
-                  scale: [1, 1.03, 1.05, 1.03, 1],
-                }}
-                transition={{
-                  opacity: { duration: 0.7, delay: 0.2 },
-                  y: { duration: 0.7, delay: 0.2 },
-                  textShadow: {
-                    repeat: Infinity,
-                    duration: 1.5,
-                    repeatDelay: 5,
-                    ease: "easeInOut",
-                  },
-                  scale: {
-                    repeat: Infinity,
-                    duration: 1.5,
-                    repeatDelay: 5,
-                    ease: "easeInOut",
-                  },
-                }}
-              >
-                <motion.span
-                  className="inline-block"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: 0.4 }}
-                >
-                  Ashwin
-                </motion.span>{" "}
-                <motion.span
-                  className="inline-block"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: 0.6 }}
-                >
-                  Antony
-                </motion.span>{" "}
-                <motion.span
-                  className="inline-block"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: 0.8 }}
-                >
-                  Jose
-                </motion.span>
-              </motion.h1>
-              <motion.p
-                className="text-2xl text-gray-600"
+                className="text-6xl sm:text-7xl lg:text-8xl font-extrabold tracking-tighter text-white leading-[1.1]"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 1 }}
+                transition={{ duration: 0.7, delay: 0.2 }}
               >
-                UI/UX Designer
+                Creative<br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">
+                  Designer.
+                </span>
+              </motion.h1>
+              
+              <motion.p
+                className="text-xl sm:text-2xl text-gray-400 font-light max-w-lg"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.4 }}
+              >
+                I'm Ashwin Antony Jose. I craft intuitive digital experiences that solve real problems.
               </motion.p>
             </div>
-            
-            <motion.p
-              className="text-lg text-gray-600 leading-relaxed"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.7, delay: 1.2 }}
-            >
-              A passionate BTech student specializing in UI/UX design. I create beautiful,
-              user-centered designs using Figma and bring ideas to life through intuitive
-              interfaces. Looking for opportunities to contribute my design skills.
-            </motion.p>
 
             <motion.div
-              className="flex flex-wrap gap-4"
+              className="flex flex-wrap gap-4 pt-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 1.4 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
             >
-              <Button size="lg" className="gap-2" onClick={handleDownloadResume}>
-                <Download className="w-4 h-4" />
-                Download Resume
-              </Button>
-              <Button size="lg" variant="outline" onClick={() => {
-                const element = document.getElementById("contact");
+              <Button size="lg" className="rounded-full bg-white text-black hover:bg-gray-200 gap-2 font-medium px-8" onClick={() => {
+                const element = document.getElementById("projects");
                 element?.scrollIntoView({ behavior: "smooth" });
               }}>
-                Contact Me
+                View Work
+                <ArrowRight className="w-4 h-4" />
+              </Button>
+              <Button size="lg" variant="outline" className="rounded-full border-white/20 text-white hover:bg-white/10 gap-2 font-medium px-8" onClick={handleDownloadResume}>
+                <Download className="w-4 h-4" />
+                Resume
               </Button>
             </motion.div>
 
             <motion.div
-              className="flex gap-4 pt-4"
+              className="flex gap-6 pt-8 items-center"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 1.6 }}
+              transition={{ duration: 0.5, delay: 0.8 }}
             >
               <a
-                href="https://www.linkedin.com/in/ashwin-antony-jose-937279296"
+                href="https://www.linkedin.com/in/ashwin-antony-jose"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-600 hover:text-gray-900 transition-colors"
+                className="text-gray-400 hover:text-white transition-colors"
               >
                 <Linkedin className="w-6 h-6" />
+                <span className="sr-only">LinkedIn</span>
               </a>
               <a
                 href="mailto:ashwinantonyjose28@gmail.com"
-                className="text-gray-600 hover:text-gray-900 transition-colors"
+                className="text-gray-400 hover:text-white transition-colors"
               >
                 <Mail className="w-6 h-6" />
+                <span className="sr-only">Email</span>
               </a>
             </motion.div>
           </div>
 
           <motion.div
-            className="relative flex justify-center"
+            className="relative flex justify-center lg:justify-end"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl max-w-md w-full">
-              <img
-                src={profilePhoto}
-                alt="Ashwin Antony Jose"
-                className="w-full h-full object-cover object-center"
-              />
+            <div className="relative group">
+              <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-[2.5rem] blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200" />
+              <div className="relative aspect-[4/5] w-full max-w-md rounded-[2rem] overflow-hidden border border-white/10 bg-black shadow-2xl">
+                <img
+                  src={profilePhoto}
+                  alt="Ashwin Antony Jose"
+                  className="w-full h-full object-cover object-center scale-[1.02] group-hover:scale-105 transition-transform duration-700 ease-out"
+                />
+                <div className="absolute inset-0 border-2 border-white/5 rounded-[2rem] pointer-events-none" />
+              </div>
             </div>
-            <div className="absolute -bottom-6 -right-6 w-72 h-72 bg-indigo-200 rounded-2xl -z-10"></div>
           </motion.div>
         </div>
       </div>

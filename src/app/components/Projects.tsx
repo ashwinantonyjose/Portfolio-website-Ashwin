@@ -1,7 +1,6 @@
-import { ExternalLink, Github } from "lucide-react";
-import { Button } from "./ui/button";
 import { Card } from "./ui/card";
 import { Badge } from "./ui/badge";
+import { motion } from "motion/react";
 
 export function Projects() {
   const projects = [
@@ -29,39 +28,58 @@ export function Projects() {
   ];
 
   return (
-    <section id="projects" className="py-20 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="max-w-3xl mx-auto text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Projects</h2>
-          <p className="text-lg text-gray-600">
-            A showcase of my design work and creative projects
-          </p>
-        </div>
+    <section id="projects" className="py-32 relative bg-[#030303] overflow-hidden">
+      {/* Decorative gradient */}
+      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-purple-600/10 blur-[150px] rounded-full pointer-events-none" />
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div className="container mx-auto px-4 relative z-10">
+        <motion.div 
+          className="max-w-3xl mx-auto text-center mb-20"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.7 }}
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Selected Work</h2>
+          <p className="text-lg md:text-xl text-gray-400 font-light">
+            A showcase of my recent design projects and explorations.
+          </p>
+        </motion.div>
+
+        <div className="grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {projects.map((project, index) => (
-            <Card key={index} className="overflow-hidden hover:shadow-xl transition-shadow">
-              <div className="aspect-video overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  {project.title}
-                </h3>
-                <p className="text-gray-600 mb-4">{project.description}</p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.technologies.map((tech, techIndex) => (
-                    <Badge key={techIndex} variant="outline" className="text-xs">
-                      {tech}
-                    </Badge>
-                  ))}
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="group"
+            >
+              <Card className="overflow-hidden bg-white/5 border-white/10 hover:border-indigo-500/50 transition-all duration-500 h-full rounded-[2rem]">
+                <div className="aspect-[4/3] overflow-hidden relative">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10" />
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
+                  />
+                  <div className="absolute bottom-4 left-4 z-20 flex flex-wrap gap-2">
+                    {project.technologies.slice(0, 2).map((tech, techIndex) => (
+                      <Badge key={techIndex} variant="secondary" className="bg-black/50 text-white backdrop-blur-md border-none">
+                        {tech}
+                      </Badge>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            </Card>
+                <div className="p-8">
+                  <h3 className="text-2xl font-semibold text-white mb-3 group-hover:text-indigo-400 transition-colors">
+                    {project.title}
+                  </h3>
+                  <p className="text-gray-400 leading-relaxed">{project.description}</p>
+                </div>
+              </Card>
+            </motion.div>
           ))}
         </div>
       </div>

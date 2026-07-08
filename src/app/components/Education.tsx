@@ -1,5 +1,6 @@
 import { GraduationCap, Calendar } from "lucide-react";
 import { Card } from "./ui/card";
+import { motion } from "motion/react";
 
 export function Education() {
   const educationData = [
@@ -19,55 +20,71 @@ export function Education() {
   ];
 
   return (
-    <section id="education" className="py-20 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="max-w-3xl mx-auto text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Education</h2>
-          <p className="text-lg text-gray-600">
+    <section id="education" className="py-32 relative bg-[#030303] overflow-hidden">
+      <div className="container mx-auto px-4 relative z-10">
+        <motion.div 
+          className="max-w-3xl mx-auto text-center mb-20"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.7 }}
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Education</h2>
+          <p className="text-lg md:text-xl text-gray-400 font-light">
             My academic background and qualifications
           </p>
-        </div>
+        </motion.div>
 
-        <div className="max-w-4xl mx-auto space-y-6">
+        <div className="max-w-4xl mx-auto space-y-8">
           {educationData.map((edu, index) => (
-            <Card key={index} className="p-6 hover:shadow-lg transition-shadow">
-              <div className="flex flex-col md:flex-row gap-6">
-                <div className="flex-shrink-0">
-                  <div className="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center">
-                    <GraduationCap className="w-8 h-8 text-indigo-600" />
-                  </div>
-                </div>
-                <div className="flex-grow">
-                  <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-2">
-                    <div>
-                      <h3 className="text-xl font-semibold text-gray-900 mb-1">
-                        {edu.degree}
-                      </h3>
-                      <p className="text-indigo-600 font-medium">{edu.institution}</p>
-                      <p className="text-gray-600 text-sm">{edu.location}</p>
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <Card className="p-8 bg-white/5 border-white/10 hover:bg-white/[0.07] transition-all duration-300 rounded-3xl backdrop-blur-sm group">
+                <div className="flex flex-col md:flex-row gap-8">
+                  <div className="flex-shrink-0">
+                    <div className="w-20 h-20 bg-indigo-500/10 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-500 border border-indigo-500/20">
+                      <GraduationCap className="w-10 h-10 text-indigo-400" />
                     </div>
-                    <div className="mt-2 md:mt-0 md:text-right">
-                      <div className="flex items-center gap-2 text-gray-600 text-sm">
-                        <Calendar className="w-4 h-4" />
-                        {edu.period}
+                  </div>
+                  <div className="flex-grow">
+                    <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
+                      <div>
+                        <h3 className="text-2xl font-semibold text-white mb-2">
+                          {edu.degree}
+                        </h3>
+                        <p className="text-indigo-400 font-medium text-lg">{edu.institution}</p>
+                        <p className="text-gray-500 mt-1">{edu.location}</p>
                       </div>
-                      <p className="text-gray-900 font-medium mt-1">{edu.gpa}</p>
+                      <div className="mt-4 md:mt-0 md:text-right">
+                        <div className="inline-flex items-center gap-2 text-gray-400 px-3 py-1 rounded-full bg-white/5 border border-white/10">
+                          <Calendar className="w-4 h-4" />
+                          <span className="text-sm font-medium">{edu.period}</span>
+                        </div>
+                        <p className="text-white font-medium mt-3 px-3 py-1 bg-indigo-500/20 inline-block rounded-md border border-indigo-500/30 text-sm">
+                          {edu.gpa}
+                        </p>
+                      </div>
                     </div>
+                    <ul className="mt-6 space-y-3">
+                      {edu.highlights.map((highlight, highlightIndex) => (
+                        <li
+                          key={highlightIndex}
+                          className="text-gray-400 flex items-start gap-3"
+                        >
+                          <span className="text-indigo-400 mt-1.5">•</span>
+                          <span className="leading-relaxed">{highlight}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <ul className="mt-4 space-y-2">
-                    {edu.highlights.map((highlight, highlightIndex) => (
-                      <li
-                        key={highlightIndex}
-                        className="text-gray-600 text-sm flex items-start gap-2"
-                      >
-                        <span className="text-indigo-600 mt-1">•</span>
-                        <span>{highlight}</span>
-                      </li>
-                    ))}
-                  </ul>
                 </div>
-              </div>
-            </Card>
+              </Card>
+            </motion.div>
           ))}
         </div>
       </div>
