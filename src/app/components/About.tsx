@@ -36,10 +36,8 @@ export function About() {
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">About Me</h2>
           <p className="text-lg md:text-xl text-gray-400 font-light leading-relaxed">
-            I'm a BTech student at Carmel College of Engineering and Technology with a strong
-            passion for UI/UX design. I specialize in creating intuitive and visually appealing
-            designs using Figma. My goal is to craft meaningful digital experiences that solve
-            real-world problems and delight users.
+           I'm a BTech student at Carmel College of Engineering and Technology with a strong passion for UI/UX design and AI-driven development. I specialize in creating intuitive and visually appealing designs using Figma, while also developing intelligent, AI-powered websites and digital solutions. My goal is to combine creativity, technology, and artificial intelligence to craft meaningful digital experiences that solve real-world problems and delight users.
+
           </p>
         </motion.div>
 
