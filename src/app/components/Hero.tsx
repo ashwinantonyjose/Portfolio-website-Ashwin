@@ -1,4 +1,4 @@
-import { Linkedin, Mail, Download, ArrowRight } from "lucide-react";
+import { Linkedin, Mail, Download, ArrowRight, MessageCircle } from "lucide-react";
 import { Button } from "./ui/button";
 import profilePhoto from "../../assets/ASHWIN PHOTO.jpeg";
 import { motion } from "motion/react";
@@ -67,6 +67,15 @@ export function Hero() {
               >
                 <Download className="w-4 h-4" />
                 Resume
+              </a>
+              <a 
+                href="https://wa.me/919778232241" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center whitespace-nowrap text-sm h-11 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20 gap-2 font-medium px-8 transition-colors"
+              >
+                <MessageCircle className="w-4 h-4" />
+                Contact for work
               </a>
             </motion.div>
 
