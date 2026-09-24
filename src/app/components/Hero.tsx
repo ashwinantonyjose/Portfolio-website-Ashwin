@@ -1,9 +1,14 @@
-import { Linkedin, Mail, Download, ArrowRight, MessageCircle } from "lucide-react";
+import { Linkedin, Mail, Download, ArrowRight, MessageCircle, Eye } from "lucide-react";
 import { Button } from "./ui/button";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "./ui/dialog";
+import { Resume } from "./Resume";
 import profilePhoto from "../../assets/ASHWIN PHOTO.jpeg";
 import { motion } from "motion/react";
+import { useState } from "react";
 
 export function Hero() {
+  const [isResumeOpen, setIsResumeOpen] = useState(false);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-[#030303]">
       {/* Background glowing orbs */}
@@ -59,14 +64,15 @@ export function Hero() {
                 View Work
                 <ArrowRight className="w-4 h-4" />
               </Button>
-              <a 
-                href="/Ashwin_Antony_Jose_Resume.pdf" 
-                download="Ashwin_Antony_Jose_Resume.pdf"
+              <Button
+                size="lg"
+                variant="outline"
+                onClick={() => setIsResumeOpen(true)}
                 className="inline-flex items-center justify-center whitespace-nowrap text-sm h-11 rounded-full border border-white/20 text-white hover:bg-white/10 gap-2 font-medium px-8 transition-colors"
               >
-                <Download className="w-4 h-4" />
-                Resume
-              </a>
+                <Eye className="w-4 h-4" />
+                View Resume
+              </Button>
               <a 
                 href="https://wa.me/919778232241" 
                 target="_blank"
@@ -127,6 +133,23 @@ export function Hero() {
           </motion.div>
         </div>
       </div>
+
+      <Dialog open={isResumeOpen} onOpenChange={setIsResumeOpen}>
+        <DialogContent className="max-w-5xl max-h-[90vh] overflow-y-auto bg-gray-100 p-4 sm:p-6">
+          <DialogHeader className="flex-row items-center justify-between pr-8">
+            <DialogTitle className="text-white">Resume</DialogTitle>
+            <a
+              href="/Ashwin_Antony_Jose_Resume.pdf"
+              download="Ashwin_Antony_Jose_Resume.pdf"
+              className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-medium text-black transition-colors hover:bg-gray-200"
+            >
+              <Download className="h-4 w-4" />
+              Download PDF
+            </a>
+          </DialogHeader>
+          <Resume />
+        </DialogContent>
+      </Dialog>
     </section>
   );
 }
