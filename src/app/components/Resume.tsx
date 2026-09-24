@@ -1,170 +1,100 @@
-import { Mail, Phone, MapPin, Linkedin, Globe } from "lucide-react";
+import { Mail, Phone, Linkedin } from "lucide-react";
 
 export function Resume() {
   return (
-    <div className="bg-white max-w-[210mm] mx-auto p-8 shadow-lg" id="resume-content">
-      {/* Header */}
+    <div className="bg-white max-w-[210mm] mx-auto p-8 shadow-lg text-gray-700" id="resume-content">
       <div className="text-center border-b-2 border-indigo-600 pb-6 mb-6">
         <h1 className="text-4xl font-bold text-gray-900 mb-2">Ashwin Antony Jose</h1>
-        <p className="text-xl text-indigo-600 font-semibold mb-4">UI/UX Designer</p>
-        
-        {/* Contact Information */}
-        <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-700">
-          <div className="flex items-center gap-1">
-            <Phone className="w-4 h-4" />
-            <span>+91 9778232241</span>
-          </div>
-          <div className="flex items-center gap-1">
-            <Mail className="w-4 h-4" />
-            <span>ashwinantonyjose28@gmail.com</span>
-          </div>
-          <div className="flex items-center gap-1">
-            <MapPin className="w-4 h-4" />
-            <span>Alappuzha, Kerala, India</span>
-          </div>
-          <div className="flex items-center gap-1">
-            <Linkedin className="w-4 h-4" />
-            <span>linkedin.com/in/ashwin-antony-jose</span>
-          </div>
+        <p className="text-xl text-indigo-600 font-semibold mb-4">UI/UX Designer and AI-Assisted Web Developer</p>
+        <div className="flex flex-wrap justify-center gap-4 text-sm">
+          <span className="flex items-center gap-1"><Phone className="w-4 h-4" />+91 9778232241</span>
+          <span className="flex items-center gap-1"><Mail className="w-4 h-4" />ashwinantonyjose28@gmail.com</span>
+          <span className="flex items-center gap-1"><Linkedin className="w-4 h-4" />LinkedIn</span>
+          <span>GitHub</span>
+          <span>Portfolio</span>
         </div>
       </div>
 
-      {/* Professional Summary */}
-      <section className="mb-6">
-        <h2 className="text-2xl font-bold text-gray-900 border-b border-gray-300 pb-2 mb-3">
-          Professional Summary
-        </h2>
-        <p className="text-gray-700 leading-relaxed">
-          Passionate and creative UI/UX Designer with a strong foundation in user-centered design principles. 
-          Proficient in creating intuitive, visually appealing interfaces using Figma. Experienced in poster 
-          and graphic design with a keen eye for aesthetics and functionality. Seeking opportunities to 
-          contribute innovative design solutions in a dynamic environment.
-        </p>
-      </section>
+      <ResumeSection title="Professional Summary">
+        <p>UI/UX Designer and AI-Assisted Web Developer focused on Figma, responsive interface design, rapid prototyping, and AI-powered development workflows. Skilled in turning ideas into intuitive digital experiences, high-fidelity prototypes, and functional web interfaces.</p>
+      </ResumeSection>
 
-      {/* Education */}
-      <section className="mb-6">
-        <h2 className="text-2xl font-bold text-gray-900 border-b border-gray-300 pb-2 mb-3">
-          Education
-        </h2>
-        <div className="mb-3">
-          <div className="flex justify-between items-start">
-            <div>
-              <h3 className="text-lg font-semibold text-gray-900">Bachelor of Technology (BTech)</h3>
-              <p className="text-gray-700">Carmel College of Engineering and Technology</p>
-              <p className="text-gray-600 text-sm">Alappuzha, Kerala, India</p>
-            </div>
-            <p className="text-gray-600 text-sm">Present</p>
-          </div>
+      <ResumeSection title="Experience">
+        <ResumeEntry title="UI/UX Design Intern (2 Months)" meta="June 2024 and 2026">
+          <p>Techgentsia Software Technologies Pvt. Ltd. | Alappuzha, Kerala</p>
+          <ResumeList items={["Designed user-centered interfaces, wireframes, and high-fidelity prototypes in Figma.", "Applied responsive design, visual hierarchy, usability, and design consistency principles."]} />
+        </ResumeEntry>
+        <ResumeEntry title="Freelance UI/UX Designer & AI-Assisted Web Developer" meta="2024-Present">
+          <p>Self-Employed | Remote</p>
+          <ResumeList items={["Designed responsive websites, mobile interfaces, landing pages, dashboards, user flows, and reusable UI systems.", "Developed responsive websites using HTML, CSS, JavaScript, and AI-powered development tools."]} />
+        </ResumeEntry>
+      </ResumeSection>
+
+      <ResumeSection title="Education">
+        <ResumeEntry title="Carmel College of Engineering and Technology" meta="2023-Expected 2027">
+          <p>B.Tech in Computer Science and Engineering</p>
+          <p>Alappuzha, Kerala</p>
+        </ResumeEntry>
+      </ResumeSection>
+
+      <ResumeSection title="Selected Projects">
+        <ResumeEntry title="Food Delivery Mobile App UI" meta="Figma, UI/UX Design">
+          <p>Designed end-to-end ordering flows, wireframes, high-fidelity screens, and interactive prototypes.</p>
+        </ResumeEntry>
+        <ResumeEntry title="Trip Map Mobile App UI" meta="Figma, UI/UX Design">
+          <p>Designed a mobile-first travel planning interface focused on route discovery, trip planning, and clear information architecture.</p>
+        </ResumeEntry>
+      </ResumeSection>
+
+      <ResumeSection title="Leadership & Achievements">
+        <ResumeList items={["UI/UX & Figma Workshop Facilitator, Coding Club - CCET: Conducted a hands-on workshop for 60 students in September 2026.", "Design Team Lead - College Magazine: Led visual direction, publication layouts, creative assets, and design coordination in 2026.", "Design Team Lead - TEDx CCET: Led branding, posters, stage visuals, social media creatives, and visual identity from 2024-2026.", "1st Place - IEEE Website Design Competition (2025): Designed a modern, user-centered website interface in Figma."]} />
+      </ResumeSection>
+
+      <ResumeSection title="Technical Skills">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <SkillGroup title="UI/UX & Product Design" text="Figma, Wireframing, High-Fidelity Prototyping, User Flows, Responsive Design, Information Architecture" />
+          <SkillGroup title="Design Systems" text="Auto Layout, Component Design, Interactive Prototypes, Visual Hierarchy, Reusable UI Components" />
+          <SkillGroup title="AI & Prompt Engineering" text="Generative AI, LLM-Based Prototyping, Context Engineering, AI Coding Workflows, UI Generation" />
+          <SkillGroup title="Tools" text="VS Code, GitHub, Netlify, Render, Supabase, MongoDB" />
         </div>
-      </section>
+      </ResumeSection>
 
-      {/* Skills */}
-      <section className="mb-6">
-        <h2 className="text-2xl font-bold text-gray-900 border-b border-gray-300 pb-2 mb-3">
-          Technical Skills
-        </h2>
-        <div className="grid grid-cols-2 gap-4">
-          <div>
-            <h3 className="font-semibold text-gray-900 mb-2">Design Tools</h3>
-            <ul className="list-disc list-inside text-gray-700 space-y-1">
-              <li>Figma (Advanced)</li>
-              <li>Adobe Photoshop</li>
-              <li>Adobe Illustrator</li>
-              <li>Canva</li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="font-semibold text-gray-900 mb-2">Design Specializations</h3>
-            <ul className="list-disc list-inside text-gray-700 space-y-1">
-              <li>UI/UX Design</li>
-              <li>User Research</li>
-              <li>Wireframing & Prototyping</li>
-              <li>Poster Design</li>
-              <li>Graphic Design</li>
-              <li>Brand Identity</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* Core Competencies */}
-      <section className="mb-6">
-        <h2 className="text-2xl font-bold text-gray-900 border-b border-gray-300 pb-2 mb-3">
-          Core Competencies
-        </h2>
-        <div className="grid grid-cols-2 gap-2">
-          <ul className="list-disc list-inside text-gray-700 space-y-1">
-            <li>User Interface Design</li>
-            <li>User Experience Design</li>
-            <li>Responsive Web Design</li>
-            <li>Mobile App Design</li>
-            <li>Design Systems</li>
-          </ul>
-          <ul className="list-disc list-inside text-gray-700 space-y-1">
-            <li>Visual Design</li>
-            <li>Typography</li>
-            <li>Color Theory</li>
-            <li>Interaction Design</li>
-            <li>Usability Testing</li>
-          </ul>
-        </div>
-      </section>
-
-      {/* Projects & Experience */}
-      <section className="mb-6">
-        <h2 className="text-2xl font-bold text-gray-900 border-b border-gray-300 pb-2 mb-3">
-          Design Projects
-        </h2>
-        
-        <div className="mb-4">
-          <h3 className="text-lg font-semibold text-gray-900">UI/UX Design Projects</h3>
-          <p className="text-gray-700 leading-relaxed mt-1">
-            Designed multiple user interfaces for web and mobile applications focusing on user-centered 
-            design principles, creating wireframes, prototypes, and high-fidelity mockups using Figma. 
-            Conducted user research and usability testing to ensure optimal user experience.
-          </p>
-        </div>
-
-        <div className="mb-4">
-          <h3 className="text-lg font-semibold text-gray-900">Graphic & Poster Design</h3>
-          <p className="text-gray-700 leading-relaxed mt-1">
-            Created engaging posters and graphic designs for various events, campaigns, and social media. 
-            Developed visual content that effectively communicates messages while maintaining brand 
-            consistency and aesthetic appeal.
-          </p>
-        </div>
-      </section>
-
-      {/* Professional Development */}
-      <section className="mb-6">
-        <h2 className="text-2xl font-bold text-gray-900 border-b border-gray-300 pb-2 mb-3">
-          Professional Development
-        </h2>
-        <ul className="list-disc list-inside text-gray-700 space-y-1">
-          <li>Active contributor on LinkedIn sharing UI/UX design insights and trends</li>
-          <li>Continuous learning through design communities and online resources</li>
-          <li>Staying updated with latest design tools and industry best practices</li>
-        </ul>
-      </section>
-
-      {/* Additional Information */}
-      <section>
-        <h2 className="text-2xl font-bold text-gray-900 border-b border-gray-300 pb-2 mb-3">
-          Additional Information
-        </h2>
-        <ul className="list-disc list-inside text-gray-700 space-y-1">
-          <li>Strong communication and collaboration skills</li>
-          <li>Ability to work independently and in team environments</li>
-          <li>Eager to learn and adapt to new design challenges</li>
-          <li>Available for campus placement opportunities</li>
-        </ul>
-      </section>
+      <ResumeSection title="Certifications">
+        <p>Google Cloud - Introduction to Generative AI | IBM - Creative & Critical Thinking | Infosys - Basics of Python | KBA - Blockchain Foundation | NPTEL - Certification</p>
+      </ResumeSection>
     </div>
   );
 }
 
-// Function to generate and download resume as PDF
+function ResumeSection({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <section className="mb-6">
+      <h2 className="text-2xl font-bold text-gray-900 border-b border-gray-300 pb-2 mb-3">{title}</h2>
+      {children}
+    </section>
+  );
+}
+
+function ResumeEntry({ title, meta, children }: { title: string; meta: string; children: React.ReactNode }) {
+  return (
+    <div className="mb-4">
+      <div className="flex justify-between items-start gap-4">
+        <h3 className="text-lg font-semibold text-gray-900">{title}</h3>
+        <p className="text-sm whitespace-nowrap">{meta}</p>
+      </div>
+      {children}
+    </div>
+  );
+}
+
+function ResumeList({ items }: { items: string[] }) {
+  return <ul className="list-disc list-inside mt-2 space-y-1">{items.map((item) => <li key={item}>{item}</li>)}</ul>;
+}
+
+function SkillGroup({ title, text }: { title: string; text: string }) {
+  return <div><h3 className="font-semibold text-gray-900 mb-2">{title}</h3><p>{text}</p></div>;
+}
+
 export function downloadResume() {
   window.print();
 }

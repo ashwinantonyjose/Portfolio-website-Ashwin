@@ -61,8 +61,7 @@ export function Hero() {
               </Button>
               <a 
                 href="/Ashwin_Antony_Jose_Resume.pdf" 
-                target="_blank"
-                rel="noopener noreferrer"
+                download="Ashwin_Antony_Jose_Resume.pdf"
                 className="inline-flex items-center justify-center whitespace-nowrap text-sm h-11 rounded-full border border-white/20 text-white hover:bg-white/10 gap-2 font-medium px-8 transition-colors"
               >
                 <Download className="w-4 h-4" />
